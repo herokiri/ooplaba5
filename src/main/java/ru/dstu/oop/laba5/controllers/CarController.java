@@ -51,9 +51,9 @@ public class CarController {
             Car car = optionalCar.get();
             car.setInArend(false);
             carRepository.save(car);
-            return "main";
+            return "redirect:/";
         }
-        return "main";
+        return "redirect:/";
     }
 
     @PostMapping("/unrent-car")
@@ -63,9 +63,9 @@ public class CarController {
             Car car = optionalCar.get();
             car.setInArend(true);
             carRepository.save(car);
-            return "main";
+            return "redirect:/moderation";
         }
-        return "main";
+        return "redirect:/moderation";
     }
 
 
@@ -79,7 +79,7 @@ public class CarController {
     public String updateCar(@PathVariable("id") Long id, Car updatedCar) {
         Car car = carService.updateCar(id, updatedCar);
         if (car != null) {
-            return "redirect:/cars";
+            return "redirect:/moderation";
         } else {
             return "errorPage";
         }
