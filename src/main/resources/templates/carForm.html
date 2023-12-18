@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Car Form</title>
+</head>
+<body>
+<h1>Create Car</h1>
+<form action="#" th:action="@{/moderation}" th:object="${car}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" />
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" th:field="*{color}" />
+
+    <label for="vin">VIN:</label>
+    <input type="text" id="vin" th:field="*{vin}" />
+
+    <label for="price">Price:</label>
+    <input type="text" id="price" th:field="*{price}" />
+
+    <input type="checkbox" id="inArend" th:field="*{inArend}" checked="true" />
+
+    <button type="submit">Create Car</button>
+</form>
+</body>
+</html>

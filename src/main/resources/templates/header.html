@@ -1,0 +1,11 @@
+<!-- header.html -->
+<header xmlns:th="http://www.w3.org/1999/xhtml">
+    <nav>
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li th:if="${username}" th:text="'Привет, ' + ${username}"></li>
+            <li th:if="${showLogin}"><a href="/login">Войти</a></li>
+            <li th:if="${showLogin}"><a href="/register">Регистрация</a></li>
+        </ul>
+    </nav>
+</header>

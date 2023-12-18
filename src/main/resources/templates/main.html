@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Прокат автомобилей</title>
+</head>
+<body>
+
+<div th:replace="header :: header"></div>
+
+<div>
+    <h1>Список доступных машин</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Цвет</th>
+            <th>VIN</th>
+            <th>Цена</th>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.id}"></td>
+            <td th:text="${car.name}"></td>
+            <td th:text="${car.color}"></td>
+            <td th:text="${car.vin}"></td>
+            <td th:text="${car.price}"></td>
+            <td><form th:if="${car.inArend}" th:action="@{/moderation/rent-car}" method="post">
+                <input type="hidden" name="carId" th:value="${car.id}" />
+                <button type="submit">Арендовать</button>
+            </form></td>
+        </tr>
+    </table>
+</div>
+
+<div th:replace="footer :: footer"></div>
+
+</body>
+</html>
